@@ -19,11 +19,14 @@ if __name__ == "__main__":
 
     dict_list = []
     for row_index in xrange(1, sheet.nrows):
-        d = {keys[col_index]: sheet.cell(row_index, col_index).value
+        d = {keys[col_index]: sheet.cell(row_index, col_index).value.encode("utf-8")
              for col_index in xrange(sheet.ncols)}
         dict_list.append(d)
 
-    # print dict_list[0]
+    # print dict_list
+    for i in range(len(dict_list) - 1665):
+        print(dict_list[i])
+        print "\n"
 
 
 
