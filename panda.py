@@ -21,15 +21,5 @@ if __name__ == "__main__":
              for col_index in range(sheet.ncols)}
         dict_list.append(d)
 
-    for i in range(4):
-        print(dict_list[i])
-        print("\n")
-
-    # with open('/Users/user/PycharmProjects/Assignment/employees.json', 'r') as data_file:
-    #     employees = json.load(data_file)
-    #     s = json.dump(employees, dict_list)
-    #     print(s)
-    # # print dict_list
-    # # for i in range(4):
-    #     # print(dict_list[i])
-    #     # print "\n"
+    with open('employees.json', 'w') as fout:
+        json.dump(dict_list, fout, indent=4)
