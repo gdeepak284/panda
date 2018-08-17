@@ -1,14 +1,23 @@
 import xlrd
 import json
+import boto3
+from boto3.s3.transfer import S3Transfer
 
 
-def read_the_file(path='/Users/user/Downloads/input.csv'):
-    with open(path, 'r') as f:
-        loc = '/Users/user/Downloads/ISO10383_MIC.xls'
-        wb = xlrd.open_workbook(loc)
-        sheet = wb.sheet_by_name("MICs List by CC")
-        sheet.cell_value(0, 0)
-    return sheet
+aws_access_key_id= 'AKIAJLQJBMRC7YE6OWOQ'
+aws_secret_access_key= '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'
+bucket_name ='pandadeepak'
+
+
+def upload_url_to_s3():
+    client = boto3.client('s3',
+                          aws_access_key_id=aws_access_key_id,
+                          aws_secret_access_key=aws_secret_access_key)
+    transfer = S3Transfer(client)
+    transfer.upload_file('/Users/user/Desktop/Assignment',
+                         bucket_name,
+                         "employees.json")
+
 
 if __name__ == "__main__":
     book = xlrd.open_workbook('/Users/user/Downloads/ISO10383_MIC.xls')
@@ -23,3 +32,11 @@ if __name__ == "__main__":
 
     with open('employees.json', 'w') as fout:
         json.dump(dict_list, fout, indent=4)
+
+    client = boto3.client('s3',
+                          aws_access_key_id=aws_access_key_id,
+                          aws_secret_access_key=aws_secret_access_key)
+    transfer = S3Transfer(client)
+    transfer.upload_file('/Users/user/Desktop/Assignment/employees.json',
+                         bucket_name,
+                         "employees.json")
