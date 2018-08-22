@@ -5,19 +5,9 @@ from boto3.s3.transfer import S3Transfer
 import os
 
 
-# class Panda:
-#     aws_access_key_id = 'AKIAICLQ6KXAX6TLKV2Q'
-#     aws_secret_access_key = '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'
-#     bucket_name = 'pandadeepak'
-#     xls_filepath = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC' \
-#                    '/ISO10383_MIC.xls '
-#     s3 = boto3.client("s3",
-#                       aws_access_key_id=aws_access_key_id,
-#                       aws_secret_access_key=aws_secret_access_key)
-
 def panda():
-    aws_access_key_id = 'AKIAICLQ6KXAX6TLKV2Q'
-    aws_secret_access_key = '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'
+    aws_access_key_id = 'aa'
+    aws_secret_access_key = 'aa'
     bucket_name = 'pandadeepak'
     xls_filepath = 'https://www.iso20022.org/sites/default/files/ISO10383_MIC' \
                    '/ISO10383_MIC.xls '
@@ -49,7 +39,3 @@ def panda():
                          bucket_name,
                          "employees.json")
 
-
-# if __name__ == "__main__":
-#     p = Panda()
-#     p.panda()
